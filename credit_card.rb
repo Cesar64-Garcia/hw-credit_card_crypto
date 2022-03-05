@@ -1,20 +1,29 @@
-require_relative './luhn_validator.rb'
+# frozen_string_literal: true
+
+require_relative './luhn_validator'
 require 'json'
 
+# Credit card
 class CreditCard
-  # TODO: mixin the LuhnValidator using an 'include' statement
+  include LuhnValidator
 
   # instance variables with automatic getter/setter methods
   attr_accessor :number, :expiration_date, :owner, :credit_network
 
   def initialize(number, expiration_date, owner, credit_network)
-    # TODO: initialize the instance variables listed above
+    @number = number
+    @expiration_date = expiration_date
+    @owner = owner
+    @credit_network = credit_network
   end
 
   # returns json string
-  def to_json
+  def to_json(*_args)
     {
-      # TODO: setup the hash with all instance vairables to serialize into json
+      number => number,
+      expiration_date => expiration_date,
+      owner => owner,
+      credit_network => credit_network
     }.to_json
   end
 

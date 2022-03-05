@@ -19,12 +19,7 @@ class CreditCard
 
   # returns json string
   def to_json(*_args)
-    {
-      number => number,
-      expiration_date => expiration_date,
-      owner => owner,
-      credit_network => credit_network
-    }.to_json
+    hash.to_json
   end
 
   # returns all card information as single string
@@ -34,7 +29,7 @@ class CreditCard
 
   # return a new CreditCard object given a serialized (JSON) representation
   def self.from_s(card_s)
-    # TODO: deserializing a CreditCard object
+    card_ruby bench/luhn_bench.rb
   end
 
   # return a hash of the serialized credit card object

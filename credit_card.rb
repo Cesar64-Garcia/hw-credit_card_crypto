@@ -54,6 +54,6 @@ class CreditCard
   def hash_secure
     #   - Use sha256 from openssl to create a cryptographically secure hash.
     #   - Credit cards with identical information should produce the same hash
-    Digest::SHA256.hexdigest(to_json)
+    Digest::SHA256.hexdigest(to_s)
   end
 end

@@ -11,9 +11,12 @@ module LuhnValidator
 
     raise 'No valid credit card number provided' if nums_a.count < 2
 
-    sum = nums_a[0...-1].reverse.each_with_index.reduce(0) do |t, (d, i)|
-      t + calc_card_digit_value(d, i)
-    end
+    sum = nums_a[0...-1]
+          .reverse
+          .each_with_index
+          .reduce(0) do |t, (d, i)|
+            t + calc_card_digit_value(d, i)
+          end
     nums_a.last == calc_checksum(sum)
   end
 

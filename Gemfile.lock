@@ -4,7 +4,7 @@ GEM
     bundler-audit (0.9.0.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
-    json (2.1.0)
+    json (2.6.1)
     minitest (5.11.3)
     thor (1.2.1)
 

@@ -29,8 +29,9 @@ class CreditCard
   end
 
   # return a new CreditCard object given a serialized (JSON) representation
-  def self.from_s(_card_s)
-    card_ruby bench / luhn_bench.rb
+  def self.from_s(card_s)
+    card = JSON.parse(card_s)
+    CreditCard.new(card['number'], card['expiration_date'], card['owner'], card['credit_network'])
   end
 
   def to_hash
@@ -47,7 +48,7 @@ class CreditCard
     #   - Produce a hash (using default hash method) of the credit card's
     #     serialized contents.
     #   - Credit cards with identical information should produce the same hash
-    to_hash.hash
+    to_s.hash
   end
 
   # return a cryptographically secure hash

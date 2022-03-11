@@ -20,7 +20,7 @@ class CreditCard
 
   # returns json string
   def to_json(*_args)
-    to_hash.to_json
+    to_hash.to_json(*json)
   end
 
   # returns all card information as single string
